@@ -45,6 +45,5 @@
 		<module>chapter10</module>
 		<module>chapter12-cdi</module>
 		<module>chapter12-mapreduce</module>
-        <module>chapter5</module>
     </modules>
 </project>
