@@ -19,14 +19,18 @@ The following software is required to build and run the examples:
 
 ####Application Server:
 1. [JBoss Application Server 1.7](http://jbossas.jboss.org/downloads/)
+
 ####IDE: 
 1. [IntelliJ IDEA](http://www.jetbrains.com/idea/download/) 
 2. [Eclipse IDE + JBoss Tools Plugin](https://eclipse.org/downloads/)
+
 ####JDK: 
 1. [Java SE Development Kit 6u35 or later](https://java.com/en/download/)
+
 ####Infinispan:
 1. [Infinispan 7.2](http://infinispan.org/download/)
 2. [Infinispan Server 7.2](http://infinispan.org/download/)
+
 ####Hibernate OGM:
 1. [Hibernate OGM 4.1.3.Final](http://hibernate.org/ogm/)
 
