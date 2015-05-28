@@ -30,7 +30,7 @@ public class DeleteTicketsTest {
 		for (Ticket ticket : GenerateTicketsTest.tickets) {
 			Query q = session
 					.createQuery("from Ticket t where t.id = :ticketNumber");
-			q.setLong("ticketNumber", ticket.getId());
+			q.setString("ticketNumber", ticket.getId());
 			Ticket retrievedTicket = (Ticket) q.uniqueResult();
 			assertEquals(retrievedTicket.getId(), ticket.getId());			
 			em.remove(retrievedTicket);

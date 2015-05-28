@@ -40,7 +40,7 @@ public class OpenWeatherCacheInfo {
 		return cache.getCacheConfiguration().eviction().strategy();
 	}
 
-	public int getEvictionMaxEntries() {
+	public long getEvictionMaxEntries() {
 		return cache.getCacheConfiguration().eviction().maxEntries();
 	}
 

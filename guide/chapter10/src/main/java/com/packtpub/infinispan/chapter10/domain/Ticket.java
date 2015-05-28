@@ -11,6 +11,7 @@ import javax.persistence.ManyToOne;
 //import javax.validation.constraints.NotNull;
 import javax.validation.constraints.NotNull;
 
+import org.hibernate.annotations.GenericGenerator;
 import org.hibernate.search.annotations.DocumentId;
 import org.hibernate.search.annotations.Indexed;
 import org.hibernate.search.annotations.IndexedEmbedded;
@@ -37,13 +38,12 @@ public class Ticket implements Serializable {
 
     /**
      * The synthetic id of the object.
+     *
      */
     @Id
-    @GeneratedValue(strategy = AUTO)
-    @DocumentId
-/*    @GeneratedValue(generator = "uuid")
-    @GenericGenerator(name="uuid", strategy="uuid2")*/
-    private Long id;
+    @GeneratedValue(generator = "uuid")
+    @GenericGenerator(name="uuid", strategy="uuid2")
+    private String id;
 
     /**
      * <p>
@@ -89,7 +89,7 @@ public class Ticket implements Serializable {
 
     /* Boilerplate getters and setters */
 
-    public Long getId() {
+    public String getId() {
         return id;
     }
 

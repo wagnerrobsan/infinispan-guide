@@ -6,7 +6,8 @@
 	<parent>
 		<groupId>com.packtpub.infinispan</groupId>
 		<artifactId>guide</artifactId>
-		<version>0.0.1-SNAPSHOT</version>
+        <version>${appVersion}</version>
+        <relativePath>..</relativePath>
 	</parent>
 	<artifactId>chapter12-mapreduce</artifactId>
 	<name>chapter12-mapreduce</name>

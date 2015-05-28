@@ -12,7 +12,6 @@ import javax.persistence.Table;
 import javax.persistence.UniqueConstraint;
 import javax.validation.constraints.NotNull;
 
-import org.codehaus.jackson.annotate.JsonIgnoreProperties;
 
 /**
  * <p>
@@ -37,7 +36,6 @@ import org.codehaus.jackson.annotate.JsonIgnoreProperties;
 /*
  * We indicate that some properties of the class shouldn't be marshalled in JSON format
  */
-@JsonIgnoreProperties({ "venue", "sectionRows" })
 public class Section implements Serializable {
 
     /* Declaration of fields */
@@ -46,7 +44,6 @@ public class Section implements Serializable {
      * The synthetic id of the object.
      */
     @Id
-    @GeneratedValue(strategy = IDENTITY)
     private Long id;
 
     /**

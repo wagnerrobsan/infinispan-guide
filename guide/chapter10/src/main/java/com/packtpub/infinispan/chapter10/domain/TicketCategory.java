@@ -36,8 +36,6 @@ public class TicketCategory implements Serializable {
      * The synthetic id of the object.
      */
     @Id
-    @GeneratedValue(strategy = IDENTITY)
-    @DocumentId
     private Long id;
 
     /**

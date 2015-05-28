@@ -1,5 +1,7 @@
 package com.packtpub.infinispan.chapter10.domain;
 
+import org.hibernate.annotations.GenericGenerator;
+
 import static javax.persistence.CascadeType.ALL;
 import static javax.persistence.FetchType.EAGER;
 import static javax.persistence.GenerationType.IDENTITY;
@@ -37,8 +39,9 @@ public class Venue implements Serializable {
      * The synthetic id of the object.
      */
     @Id
-    @GeneratedValue(strategy = IDENTITY)
-    private Long id;
+    @GeneratedValue(generator = "uuid")
+    @GenericGenerator(name="uuid", strategy="uuid2")
+    private String id;
 
     /**
      * <p>
@@ -86,11 +89,11 @@ public class Venue implements Serializable {
 
     /* Boilerplate getters and setters */
     
-    public Long getId() {
+    public String getId() {
         return id;
     }
 
-    public void setId(Long id) {
+    public void setId(String id) {
         this.id = id;
     }
 

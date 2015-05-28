@@ -4,6 +4,8 @@ import org.infinispan.Cache;
 import org.infinispan.configuration.cache.CacheMode;
 import org.infinispan.configuration.cache.Configuration;
 import org.infinispan.configuration.cache.ConfigurationBuilder;
+import org.infinispan.configuration.global.GlobalConfiguration;
+import org.infinispan.configuration.global.GlobalConfigurationBuilder;
 import org.infinispan.manager.DefaultCacheManager;
 
 import com.packtpub.infinispan.chapter4.exceptions.CodeDoesNotExistsException;
@@ -13,9 +15,10 @@ public class ReferenceCodeService {
     private IDataStore dataStore;
 
 	public ReferenceCodeService() {
+        GlobalConfiguration gc = new GlobalConfigurationBuilder().globalJmxStatistics().jmxDomain("com.packtpub.infinispan").allowDuplicateDomains(true).build();
 		Configuration config = new ConfigurationBuilder().clustering()
 				.cacheMode(CacheMode.LOCAL).build();
-		this.cache = new DefaultCacheManager(config).getCache();
+		this.cache = new DefaultCacheManager(gc, config).getCache();
         this.dataStore = RefCodeDataStore.getInstance();
 	}
 

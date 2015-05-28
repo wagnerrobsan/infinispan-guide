@@ -42,7 +42,7 @@ public class QueryTicketsTest {
 		Query q = session
 				.createQuery("from Ticket t where t.id = :ticketNumber");
 		Ticket ticket = GenerateTicketsTest.tickets.get(1);
-		q.setLong("ticketNumber", ticket.getId());
+		q.setString("ticketNumber", ticket.getId());
 		Ticket retrievedTicket = (Ticket) q.uniqueResult();
 		assertEquals(retrievedTicket.getId(), ticket.getId());
 		logger.infof("\nFound ticket %s ", retrievedTicket);

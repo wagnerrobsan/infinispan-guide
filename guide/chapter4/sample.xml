@@ -12,6 +12,8 @@
 		<transport stack="tcp" cluster="infinispan-cluster"
 			node-name="Node-A" machine="m1" rack="r1" site="Dublin" />
 
+        <jmx domain="com.packtpub" duplicate-domains="true" />
+
 		<invalidation-cache name="CacheClient_Blue" mode="SYNC"
 			remote-timeout="20000" />
 		<replicated-cache name="CacheClient_Brown" mode="ASYNC"

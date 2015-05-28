@@ -60,12 +60,12 @@ public class HotRodClientTest {
     			  timeBetweenEvictionRuns(120000).
     			  minEvictableIdleTime(1800000).
     			  minIdle(1)
-    		     .security()
+/*    		     .security()
     	           .authentication()
     	             .enable()
     	             .serverName("localhost")
     	             .saslMechanism("PLAIN")
-    	             .callbackHandler(new SecurityCallbackHandler("user", "qwer1234!", REALM));; 
+    	             .callbackHandler(new SecurityCallbackHandler("user", "qwer1234!", REALM));*/;
     	
     	/*.
     			  marshaller((Marshaller) new ProtoStreamMarshaller())*/;

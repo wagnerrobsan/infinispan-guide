@@ -9,8 +9,9 @@
 	</jgroups>
 
 	<cache-container default-cache="transactionCacheExample01">
-		<jmx domain="com.packtpub.infinispan" />
-		<local-cache name="transactionCacheExample01">
+		<jmx domain="com.packtpub.infinispan" duplicate-domains="true" />
+
+        <local-cache name="transactionCacheExample01">
 			<transaction
 				transaction-manager-lookup="org.infinispan.transaction.lookup.GenericTransactionManagerLookup"
 				stop-timeout="30000" auto-commit="true" mode="NON_DURABLE_XA" />

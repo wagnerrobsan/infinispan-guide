@@ -1,4 +1,4 @@
-package chapter4;
+package com.packtpub.infinispan.chapter4;
 
 import static org.junit.Assert.*;
 
