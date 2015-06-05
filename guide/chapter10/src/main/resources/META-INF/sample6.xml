@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <infinispan
-    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-    xsi:schemaLocation="urn:infinispan:config:6.0 http://www.infinispan.org/schemas/infinispan-config-6.0.xsd"
-    xmlns="urn:infinispan:config:6.0">
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="urn:infinispan:config:6.0 http://www.infinispan.org/schemas/infinispan-config-6.0.xsd"
+        xmlns="urn:infinispan:config:6.0">
 
     <!-- *************************** -->
     <!-- System-wide global settings -->
@@ -15,26 +15,26 @@
             the CacheManager across applications, or use a custom configuration.
             Only enable if needed - it has a performance impact. -->
         <globalJmxStatistics
-            enabled="true"
-            cacheManagerName="HibernateOGM"
-            allowDuplicateDomains="true" />
+                enabled="true"
+                cacheManagerName="HibernateOGM"
+                allowDuplicateDomains="true"/>
 
         <!-- If the transport is omitted, there is no way to create distributed or clustered 
             caches. There is no added cost to defining a transport but not creating a cache that uses one, 
             since the transport is created and initialized lazily. -->
         <transport
-            clusterName="HibernateOGM-Infinispan-cluster"
-            distributedSyncTimeout="50000">
+                clusterName="HibernateOGM-Infinispan-cluster"
+                distributedSyncTimeout="50000">
             <!-- This is the default TCP based configuration, bundled in Infinispan core jar -->
             <properties>
-                <property name="configurationFile" value="jgroups-tcp.xml" />
+                <property name="configurationFile" value="jgroups-tcp.xml"/>
             </properties>
         </transport>
 
         <!-- Used to register JVM shutdown hooks. hookBehavior: DEFAULT, REGISTER, DONT_REGISTER. 
             Hibernate OGM takes care to stop the CacheManager so registering is not needed -->
         <shutdown
-            hookBehavior="DONT_REGISTER" />
+                hookBehavior="DONT_REGISTER"/>
 
     </global>
 
@@ -47,7 +47,7 @@
         <!-- This element specifies that the cache is clustered. modes supported: distribution 
             (d), replication (r) or invalidation (i). Don't use invalidation as OGM storage! -->
         <clustering
-            mode="distribution">
+                mode="distribution">
 
             <!-- Force loading all data at startup: to be enabled when using replication 
             <stateRetrieval
@@ -57,10 +57,10 @@
 
             <!-- Network calls are synchronous by default -->
             <sync
-                replTimeout="25000" />
+                    replTimeout="25000"/>
 
             <!-- Keep L1 disabled until issues have been fixed -->
-            <l1 enabled="false" />
+            <l1 enabled="false"/>
 
         </clustering>
 
@@ -70,11 +70,11 @@
         </transaction-->
 
         <eviction
-            strategy="NONE" />
+                strategy="NONE"/>
 
         <expiration
-            wakeUpInterval="-1"
-            reaperEnabled="false" />
+                wakeUpInterval="-1"
+                reaperEnabled="false"/>
 
     </default>
 
@@ -82,18 +82,18 @@
     <!--     Cache to store the OGM entities     -->
     <!-- *************************************** -->
     <namedCache
-        name="ENTITIES">
-		<persistence passivation="true">
-		  <singleFile      
-		     location="/tmp/infinispan_ogm_fs_v6/store"/>
-		</persistence>
+            name="ENTITIES">
+        <persistence passivation="true">
+            <singleFile
+                    location="/tmp/infinispan_ogm_fs_v6/store"/>
+        </persistence>
     </namedCache>
 
     <!-- *********************************************** -->
     <!--   Cache to store the relations across entities  -->
     <!-- *********************************************** -->
     <namedCache
-        name="ASSOCIATIONS">
+            name="ASSOCIATIONS">
         <persistence passivation="true">
             <singleFile
                     location="/tmp/infinispan_ogm_fs_v6/store"/>
@@ -104,7 +104,7 @@
     <!--   Cache to store identifiers  -->
     <!-- ***************************** -->
     <namedCache
-        name="IDENTIFIERS">
+            name="IDENTIFIERS">
         <persistence passivation="true">
             <singleFile
                     location="/tmp/infinispan_ogm_fs_v6/store"/>

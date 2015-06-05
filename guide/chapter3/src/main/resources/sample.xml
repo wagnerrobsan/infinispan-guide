@@ -31,13 +31,13 @@
 		</local-cache>
 
 		<local-cache name="ExpirationCache">
-			<expiration lifespan="10000" max-idle="3000" />
+			<expiration lifespan="9999" max-idle="2999" />
 		</local-cache>
 
 
 		<local-cache name="EvictionAndPassivationCache">
 			<eviction max-entries="10" strategy="LRU" />
-			<expiration interval="500" lifespan="60000" max-idle="1000" />
+			<expiration interval="500" lifespan="60000" max-idle="999" />
 			<persistence passivation="true">
 				<file-store path="/tmp/cache/backup" />
 			</persistence>

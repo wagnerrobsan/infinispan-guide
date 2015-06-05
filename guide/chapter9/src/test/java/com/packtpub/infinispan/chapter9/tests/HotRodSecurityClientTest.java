@@ -35,25 +35,25 @@ public class HotRodSecurityClientTest {
 		customer.setDoc("212.333.111");
 		customer.setMaritalStatus("Married");
 
-    	ConfigurationBuilder builder = new ConfigurationBuilder();
-    	builder.addServer().
-    			  host("localhost").
-    			  port(11222).
-    			connectionPool().
-    			  lifo(true).
-    			  maxActive(10).
-    			  maxIdle(10).
-    			  maxTotal(20).
-    			  exhaustedAction(ExhaustedAction.CREATE_NEW).
-    			  timeBetweenEvictionRuns(120000).
-    			  minEvictableIdleTime(1800000).
-    			  minIdle(1).
-    		    security().
-    	          authentication().
-    	            enable().
-    	            serverName("localhost").
-    	            saslMechanism("DIGEST-MD5").
-    	            callbackHandler(new SecurityCallbackHandler("wsantos", "test123", REALM));;
+        ConfigurationBuilder builder = new ConfigurationBuilder();
+        builder.addServer().
+                host("localhost").
+                port(11222).
+                connectionPool().
+                lifo(true).
+                maxActive(10).
+                maxIdle(10).
+                maxTotal(20).
+                exhaustedAction(ExhaustedAction.CREATE_NEW).
+                timeBetweenEvictionRuns(120000).
+                minEvictableIdleTime(1800000).
+                minIdle(1).
+                security().
+                authentication().
+                enable().
+                serverName("localhost").
+                saslMechanism("DIGEST-MD5").
+                callbackHandler(new SecurityCallbackHandler("wsantos", "test123", REALM));
 
 		rcm = new RemoteCacheManager(builder.build());
 		rc = rcm.getCache("securedCache");

@@ -8,14 +8,14 @@ import java.util.HashSet;
 import java.util.Set;
 
 public class WorldWeatherApplication extends Application {
-	private Set<Object> singletons = new HashSet<Object>();
-
-	public WorldWeatherApplication() {
-		singletons.add(new WeatherService());
-	}
-
-	@Override
-	public Set<Object> getSingletons() {
-		return singletons;
-	}
+  private Set<Object> singletons = new HashSet<Object>();
+  
+  public WorldWeatherApplication() {
+    singletons.add(new WeatherService());
+  }
+  
+  @Override
+  public Set<Object> getSingletons() {
+    return singletons;
+  }
 }

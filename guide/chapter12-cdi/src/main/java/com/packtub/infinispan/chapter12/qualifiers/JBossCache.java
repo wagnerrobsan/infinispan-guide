@@ -13,5 +13,4 @@ import javax.inject.Qualifier;
 @Retention(RetentionPolicy.RUNTIME)
 @Documented
 public @interface JBossCache {
-
 }

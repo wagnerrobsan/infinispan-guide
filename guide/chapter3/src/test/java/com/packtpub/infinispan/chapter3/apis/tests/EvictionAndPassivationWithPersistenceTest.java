@@ -13,37 +13,32 @@ import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 
-public class EvictionAndPassivationWithPersistenceTest extends BaseTest{
-
-	private EmbeddedCacheManager manager;
-	private File fileCache;
-
-	@Before
-	public void setUp() throws Exception {
-		fileCache = new File(
-				"/tmp/cache/backup/EvictionAndPassivationCache.dat");
-		if (fileCache.exists()) {
-			assertTrue(fileCache.delete());
-		}
-
-		manager = new DefaultCacheManager(getSampleFile());
-	}
-
-	@Test
-	public void testPpassivationAndEvictionConfig() throws URISyntaxException {
-
-		Cache<String, String> cache = manager
-				.getCache("EvictionAndPassivationCache");
-		for (int i = 1; i < 10; i++) {
-			cache.put("key_" + i, "Key " + i + " Value");
-		}
-		assertTrue(fileCache.exists());
-
-	}
-
-	@After
-	public void cleanUp() throws Exception {
-		assertFalse(fileCache.delete());
-	}
-
+public class EvictionAndPassivationWithPersistenceTest extends BaseTest {
+  
+  private EmbeddedCacheManager manager;
+  private File fileCache;
+  
+  @Before
+  public void setUp() throws Exception {
+    fileCache = new File("/tmp/cache/backup/EvictionAndPassivationCache.dat");
+    if (fileCache.exists()) {
+      assertTrue(fileCache.delete());
+    }
+    manager = new DefaultCacheManager(getSampleFile());
+  }
+  
+  @Test
+  public void testPpassivationAndEvictionConfig() throws URISyntaxException {
+    Cache<String, String> cache = manager.getCache("EvictionAndPassivationCache");
+    for (int i = 1; i < 10; i++) {
+      cache.put("key_" + i, "Key " + i + " Value");
+    }
+    assertTrue(fileCache.exists());
+  }
+  
+  @After
+  public void cleanUp() throws Exception {
+    assertFalse(fileCache.delete());
+  }
+  
 }

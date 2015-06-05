@@ -17,12 +17,12 @@ public class BaseTest {
     InputStream inputStream = getClass().getClassLoader().getResourceAsStream(propFileName);
     String filename = "sample.xml";
     if (inputStream != null) {
-        try {
-            prop.load(inputStream);
-            filename = prop.getProperty("sample.file");
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
+      try {
+        prop.load(inputStream);
+        filename = prop.getProperty("sample.file");
+      } catch (IOException e) {
+        e.printStackTrace();
+      }
     }
     return filename;
   }

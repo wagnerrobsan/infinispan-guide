@@ -37,7 +37,6 @@ public class QueryTicketsTest {
   
   @Before
   public void prepare() {
-    
     EntityManager em = getEntityManager();
     Session session = em.unwrap(Session.class);
     Query q = session.createQuery("from Ticket");

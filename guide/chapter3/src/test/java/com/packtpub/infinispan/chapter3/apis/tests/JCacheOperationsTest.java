@@ -23,7 +23,6 @@ public class JCacheOperationsTest {
 		// resolve a cache manager
 		CachingProvider cachingProvider = Caching.getCachingProvider();
 		cacheManager = cachingProvider.getCacheManager();
-
 	}
 
 	@Test
@@ -42,7 +41,6 @@ public class JCacheOperationsTest {
 		assertEquals(otherTempData, tempData);
 		tempCache.remove(key);
 		assertNull(tempCache.get(key));
-
 	}
 
 	private Configuration<String, String> getJCacheConfiguration() {
