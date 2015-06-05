@@ -1,21 +1,12 @@
 ## Code samples for "Infinispan Data Grid Platform Definitive Guide"
 The project is build using Maven and provides '''''support for both Infinispan versions 6.0.2.Final and 7.2.2.Final''''' via [Maven Profiles] (https://maven.apache.org/guides/introduction/introduction-to-profiles.html)
 
-You can build or run the code using Infinispan 6.0.2.Final with the following Profile:
-<code>
-   <profile>
-      <id>Version6</id>
-      ..
-   </profile>
-</code>
-Or you can do build or run the code using Infinispan 7.2.2.Final with the Profile:
-<code>
-   <profile>
-      <id>Version7</id>
-      ..
-   </profile>
-</code>
+You can build or run the code using Infinispan 6.0.2.Final with the Profile <code>Version6</code> 
+
+Or you can do build or run the code using Infinispan 7.2.2.Final with the Profile <code>Version7</code>
+
 You can easily trigger the desired profile using IntelliJ or Eclipse, please refer the following link to trigger it manually:
+
 [Introduction to Profiles] (https://maven.apache.org/guides/introduction/introduction-to-profiles.html)
 
 
