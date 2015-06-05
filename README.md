@@ -1,5 +1,5 @@
 ## Code samples for "Infinispan Data Grid Platform Definitive Guide"
-The project is build using Maven and provides '''''support for both Infinispan versions 6.0.2.Final and 7.2.2.Final''''' via [Maven Profiles] (https://maven.apache.org/guides/introduction/introduction-to-profiles.html)
+The project is build using Maven and provides support for both Infinispan versions 6.0.2.Final and 7.2.2.Final via [Maven Profiles] (https://maven.apache.org/guides/introduction/introduction-to-profiles.html)
 
 You can build or run the code using Infinispan 6.0.2.Final with the Profile <code>Version6</code> 
 
@@ -12,10 +12,15 @@ You can easily trigger the desired profile using IntelliJ or Eclipse, please ref
 
 ###Buy the book 
 [Packet Publising web site](https://www.packtpub.com/big-data-and-business-intelligence/infinispan-data-grid-platform-definitive-guide)
+
 [Amazon](http://www.amazon.com/Infinispan-Data-Platform-Definitive-Guide/dp/1782169970)
-About the book:
+
+'''About the book''':
+
 This practical guide is intended for those who want to learn how to build extremely scalable applications. This book is easy to read and is aimed at Java enterprise developers with a solid knowledge of Java. However, no previous coding experience with Infinispan is required.
-You will learn:
+
+'''You will learn''':
+
 *Create highly scalable applications using the Infinispan Data Grid Platform
 *Maximize your application's performance in any cluster environment
 *Become an expert in creating powerful solutions using Infinispan through ready-to-use examples
