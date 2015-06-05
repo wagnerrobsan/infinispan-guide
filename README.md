@@ -1,6 +1,33 @@
 ## Code samples for "Infinispan Data Grid Platform Definitive Guide"
+The project is build using Maven and provides support for both Infinispan versions 6.0.2.Final and 7.2.2.Final via [Maven Profiles] (https://maven.apache.org/guides/introduction/introduction-to-profiles.html)
 
-[Link](https://www.packtpub.com/big-data-and-business-intelligence/infinispan-data-grid-platform-definitive-guide)
+You can build or run the code using Infinispan 6.0.2.Final with the following Profile:
+
+<profile>
+<id>Version6</id>
+..
+</profile>
+
+Or you can do build or run the code using Infinispan 7.2.2.Final with the Profile:
+<profile>
+<id>Version7</id>
+..
+</profile>
+
+You can easily trigger the desired profile using IntelliJ or Eclipse, please refer the following link to trigger it manually:
+[Introduction to Profiles] (https://maven.apache.org/guides/introduction/introduction-to-profiles.html)
+
+
+###Buy the book 
+[Packet Publising web site](https://www.packtpub.com/big-data-and-business-intelligence/infinispan-data-grid-platform-definitive-guide)
+[Amazon](http://www.amazon.com/Infinispan-Data-Platform-Definitive-Guide/dp/1782169970)
+About the book:
+This practical guide is intended for those who want to learn how to build extremely scalable applications. This book is easy to read and is aimed at Java enterprise developers with a solid knowledge of Java. However, no previous coding experience with Infinispan is required.
+You will learn:
+*Create highly scalable applications using the Infinispan Data Grid Platform
+*Maximize your application's performance in any cluster environment
+*Become an expert in creating powerful solutions using Infinispan through ready-to-use examples
+
 
 ### Authors
 * [Wagner Roberto dos Santos](https://github.com/wagnerrobsan) - [LinkedIn](https://ie.linkedin.com/in/wrsantos)
@@ -28,8 +55,8 @@ The following software is required to build and run the examples:
 1. [Java SE Development Kit 6u35 or later](https://java.com/en/download/)
 
 ####Infinispan:
-1. [Infinispan 7.2](http://infinispan.org/download/)
-2. [Infinispan Server 7.2](http://infinispan.org/download/)
+1. [Infinispan 6.0.2.Final and 7.2.2.Final](http://infinispan.org/download/)
+2. [Infinispan Server 6.0.2.Final and 7.2.2.Final](http://infinispan.org/download/)
 
 ####Hibernate OGM:
 1. [Hibernate OGM 4.1.3.Final](http://hibernate.org/ogm/)
