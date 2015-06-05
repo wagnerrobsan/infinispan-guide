@@ -13,8 +13,8 @@
 
 	<properties>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-        <infinispanVersion>7.2.0.Final</infinispanVersion>
         <infinispan6Version>6.0.2.Final</infinispan6Version>
+        <infinispan7Version>7.2.2.Final</infinispan7Version>
         <appVersion>1.0.0</appVersion>
     </properties>
 
@@ -24,21 +24,6 @@
             <artifactId>junit</artifactId>
             <version>4.11</version>
         </dependency>
-		<dependency>
-			<groupId>org.infinispan</groupId>
-			<artifactId>infinispan-core</artifactId>
-			<version>${infinispanVersion}</version>
-		</dependency>
-		<dependency>
-			<groupId>org.infinispan</groupId>
-			<artifactId>infinispan-tree</artifactId>
-			<version>${infinispanVersion}</version>
-		</dependency>
-		<dependency>
-			<groupId>org.infinispan</groupId>
-			<artifactId>infinispan-jcache</artifactId>
-            <version>${infinispanVersion}</version>
-		</dependency>
 	</dependencies>
 	<modules>
 		<module>chapter3</module>
@@ -54,19 +39,39 @@
             <id>Version6</id>
             <properties>
                 <sample.file>sample6.xml</sample.file>
+                <infinispanVersion>6.0.2.Final</infinispanVersion>
             </properties>
             <dependencies>
                 <dependency>
                     <groupId>org.infinispan</groupId>
                     <artifactId>infinispan-core</artifactId>
-                    <version>6.0.2.Final</version>
+                    <version>${infinispan6Version}</version>
+                </dependency>
+                <dependency>
+                    <groupId>org.infinispan</groupId>
+                    <artifactId>infinispan-core</artifactId>
+                    <version>${infinispan6Version}</version>
+                </dependency>
+                <dependency>
+                    <groupId>org.infinispan</groupId>
+                    <artifactId>infinispan-tree</artifactId>
+                    <version>${infinispan6Version}</version>
+                </dependency>
+                <dependency>
+                    <groupId>org.infinispan</groupId>
+                    <artifactId>infinispan-jcache</artifactId>
+                    <version>${infinispan6Version}</version>
                 </dependency>
             </dependencies>
         </profile>
         <profile>
             <id>Version7</id>
+            <activation>
+                <activeByDefault>true</activeByDefault>
+            </activation>
             <properties>
                 <sample.file>sample.xml</sample.file>
+                <infinispanVersion>7.2.2.Final</infinispanVersion>
             </properties>
             <dependencies>
                 <dependency>
@@ -74,29 +79,22 @@
                     <artifactId>infinispan-core</artifactId>
                     <version>7.2.2.Final</version>
                 </dependency>
+                <dependency>
+                    <groupId>org.infinispan</groupId>
+                    <artifactId>infinispan-core</artifactId>
+                    <version>${infinispan7Version}</version>
+                </dependency>
+                <dependency>
+                    <groupId>org.infinispan</groupId>
+                    <artifactId>infinispan-tree</artifactId>
+                    <version>${infinispan7Version}</version>
+                </dependency>
+                <dependency>
+                    <groupId>org.infinispan</groupId>
+                    <artifactId>infinispan-jcache</artifactId>
+                    <version>${infinispan7Version}</version>
+                </dependency>
             </dependencies>
         </profile>
     </profiles>
-    <build>
-        <resources>
-            <resource>
-                <directory>src/main/resources</directory>
-                <filtering>true</filtering>
-            </resource>
-        </resources>
-        <plugins>
-            <plugin>
-                <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-surefire-plugin</artifactId>
-                <configuration>
-                    <systemProperties>
-                        <property>
-                            <name>fileName</name>
-                            <value>sample.xml</value>
-                        </property>
-                    </systemProperties>
-                </configuration>
-            </plugin>
-        </plugins>
-    </build>
 </project>
