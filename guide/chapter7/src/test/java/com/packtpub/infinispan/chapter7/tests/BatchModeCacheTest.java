@@ -17,7 +17,7 @@ import org.junit.Test;
 import com.packtpub.infinispan.chapter7.domain.Guest;
 import com.packtpub.infinispan.chapter7.utils.GuestListImporter;
 
-public class BatchModeCacheTest {
+public class BatchModeCacheTest extends BaseTest{
 
 	private static final Log logger = LogFactory.getLog(BatchModeCacheTest.class);
 	private CacheContainer container;
@@ -26,7 +26,7 @@ public class BatchModeCacheTest {
 	@Before
 	public void setUp() throws Exception {
 		logger.info("Executing setUp() ... ");
-		container = new DefaultCacheManager("sample.xml");
+		container = new DefaultCacheManager(getSampleFile());
 		
 	}
 
@@ -46,5 +46,4 @@ public class BatchModeCacheTest {
 		}
 
 	}
-
 }

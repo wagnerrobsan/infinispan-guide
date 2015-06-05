@@ -1,20 +1,19 @@
 package com.packtpub.infinispan.chapter10.domain;
 
-import static javax.persistence.GenerationType.AUTO;
-
 import java.io.Serializable;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.ManyToOne;
-//import javax.validation.constraints.NotNull;
 import javax.validation.constraints.NotNull;
 
 import org.hibernate.annotations.GenericGenerator;
-import org.hibernate.search.annotations.DocumentId;
+import org.hibernate.search.annotations.Field;
 import org.hibernate.search.annotations.Indexed;
 import org.hibernate.search.annotations.IndexedEmbedded;
+
+//import javax.validation.constraints.NotNull;
 
 /**
  * <p>
@@ -43,6 +42,7 @@ public class Ticket implements Serializable {
     @Id
     @GeneratedValue(generator = "uuid")
     @GenericGenerator(name="uuid", strategy="uuid2")
+    @Field(name = "id")
     private String id;
 
     /**

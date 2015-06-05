@@ -1,21 +1,21 @@
 package com.packtpub.infinispan.chapter9.tests;
 
-import static org.junit.Assert.*;
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertNull;
 
 import java.util.Map.Entry;
 
-import org.infinispan.commons.logging.Log;
-import org.infinispan.commons.logging.LogFactory;
 import org.infinispan.client.hotrod.RemoteCache;
 import org.infinispan.client.hotrod.RemoteCacheManager;
 import org.infinispan.client.hotrod.configuration.ConfigurationBuilder;
 import org.infinispan.client.hotrod.configuration.ExhaustedAction;
+import org.infinispan.commons.logging.Log;
+import org.infinispan.commons.logging.LogFactory;
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 
 import com.packtpub.infinispan.chapter9.domain.Customer;
-import com.packtpub.infinispan.chapter9.security.SecurityCallbackHandler;
 
 public class HotRodClientTest {
 	private RemoteCache<String, Customer> rc;
@@ -41,16 +41,6 @@ public class HotRodClientTest {
     	builder.addServer().
     			  host("localhost").
     			  port(11222).
-//    			  marshaller(new ProtoStreamMarshaller()).
-//      			addServer().
-//      			  host("localhost").
-//      			  port(11223).
-//    		    ssl().
-//    		      enable().
-//    		      keyStoreFileName(cl.getResource("keystore.jks").getPath()).
-//    		      keyStorePassword("myPasswprd".toCharArray()).
-//    		      trustStoreFileName(cl.getResource("keystore.jks").getPath()).
-//    		      trustStorePassword("myPassword".toCharArray()).
     			connectionPool().
     			  lifo(true).
     			  maxActive(10).
@@ -59,17 +49,8 @@ public class HotRodClientTest {
     			  exhaustedAction(ExhaustedAction.CREATE_NEW).
     			  timeBetweenEvictionRuns(120000).
     			  minEvictableIdleTime(1800000).
-    			  minIdle(1)
-/*    		     .security()
-    	           .authentication()
-    	             .enable()
-    	             .serverName("localhost")
-    	             .saslMechanism("PLAIN")
-    	             .callbackHandler(new SecurityCallbackHandler("user", "qwer1234!", REALM));*/;
-    	
-    	/*.
-    			  marshaller((Marshaller) new ProtoStreamMarshaller())*/;
-    	    
+    			  minIdle(1);
+
 		rcm = new RemoteCacheManager(builder.build());
 		rc = rcm.getCache();    	
 	}

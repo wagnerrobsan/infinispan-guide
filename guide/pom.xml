@@ -49,4 +49,54 @@
 		<module>chapter12-cdi</module>
 		<module>chapter12-mapreduce</module>
     </modules>
+    <profiles>
+        <profile>
+            <id>Version6</id>
+            <properties>
+                <sample.file>sample6.xml</sample.file>
+            </properties>
+            <dependencies>
+                <dependency>
+                    <groupId>org.infinispan</groupId>
+                    <artifactId>infinispan-core</artifactId>
+                    <version>6.0.2.Final</version>
+                </dependency>
+            </dependencies>
+        </profile>
+        <profile>
+            <id>Version7</id>
+            <properties>
+                <sample.file>sample.xml</sample.file>
+            </properties>
+            <dependencies>
+                <dependency>
+                    <groupId>org.infinispan</groupId>
+                    <artifactId>infinispan-core</artifactId>
+                    <version>7.2.2.Final</version>
+                </dependency>
+            </dependencies>
+        </profile>
+    </profiles>
+    <build>
+        <resources>
+            <resource>
+                <directory>src/main/resources</directory>
+                <filtering>true</filtering>
+            </resource>
+        </resources>
+        <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-surefire-plugin</artifactId>
+                <configuration>
+                    <systemProperties>
+                        <property>
+                            <name>fileName</name>
+                            <value>sample.xml</value>
+                        </property>
+                    </systemProperties>
+                </configuration>
+            </plugin>
+        </plugins>
+    </build>
 </project>

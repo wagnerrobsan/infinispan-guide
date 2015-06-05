@@ -1,8 +1,6 @@
 package com.packtpub.infinispan.chapter3.apis.tests;
 
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertNotNull;
-import static org.junit.Assert.assertTrue;
+import static org.junit.Assert.*;
 
 import org.infinispan.Cache;
 import org.infinispan.configuration.cache.Configuration;
@@ -14,12 +12,12 @@ import org.junit.Test;
 
 import com.packtpub.infinispan.chapter3.configurations.MultiTenancyNamedCaches;
 
-public class ProgrammaticNamedCacheConfigurationTest {
+public class ProgrammaticNamedCacheConfigurationTest extends BaseTest{
 	private EmbeddedCacheManager manager;
 
 	@Before
 	public void setUp() throws Exception {
-		manager = new DefaultCacheManager("sample.xml");
+		manager = new DefaultCacheManager(getSampleFile());
 		assertTrue(manager.getCacheNames().contains("CacheClient_Blue"));
 		assertTrue(manager.getCacheNames().contains("CacheClient_Brown"));
 		assertEquals(manager.getCacheNames().size(), 6);

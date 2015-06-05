@@ -1,8 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <infinispan xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-	xsi:schemaLocation="urn:infinispan:config:6.0 http://www.infinispan.org/schemas/infinispan-config-6.0.xsd
-                        urn:infinispan:config:jdbc:6.0 http://www.infinispan.org/schemas/infinispan-cachestore-jdbc-config-6.0.xsd"
-	xmlns="urn:infinispan:config:6.0" xmlns:jdbc="urn:infinispan:config:jdbc:6.0">
+            xsi:schemaLocation="urn:infinispan:config:6.0 http://www.infinispan.org/schemas/infinispan-config-6.0.xsd"
+            xmlns="urn:infinispan:config:6.0">
 	<global>
 		<globalJmxStatistics enabled="true"
 			cacheManagerName="InfinispanGuide-OGM" allowDuplicateDomains="true" />
@@ -27,11 +26,9 @@
 	</default>
 
 	<namedCache name="ENTITIES">
-		<eviction strategy="LIRS" maxEntries="10" />
+		<!-- eviction strategy="LIRS" maxEntries="10" />
 		<persistence>
-			<binaryKeyedJdbcStore xmlns="urn:infinispan:config:jdbc:6.0"
-				fetchPersistentState="false" ignoreModifications="false"
-				purgeOnStartup="false">
+			<jdbc:binaryKeyedJdbcStore xmlns="urn:infinispan:config:jdbc:6.0">
 				<connectionPool connectionUrl="jdbc:mysql://localhost:3306/infinispan"
 					username="infinispan" password="infinispan" driverClass="com.mysql.jdbc.Driver" />
 				<binaryKeyedTable prefix="ISPN_GRID_OGM_BIN"
@@ -40,16 +37,18 @@
 					<dataColumn name="DATA_ENT_TICKET" type="BLOB" />
 					<timestampColumn name="TIMESTAMP_ENT" type="BIGINT" />
 				</binaryKeyedTable>
-			</binaryKeyedJdbcStore>
-		</persistence>
-	</namedCache>
+			</jdbc:binaryKeyedJdbcStore>
+		</persistence -->
+        <persistence passivation="true">
+            <singleFile
+                    location="/tmp/infinispan_ogm_fs_v7/store" />
+        </persistence>
+    </namedCache>
 
 	<namedCache name="ASSOCIATIONS">
-		<eviction strategy="LIRS" maxEntries="10" />
+		<!--eviction strategy="LIRS" maxEntries="10" />
 		<persistence>
-			<binaryKeyedJdbcStore xmlns="urn:infinispan:config:jdbc:6.0"
-				fetchPersistentState="false" ignoreModifications="false"
-				purgeOnStartup="false">
+			<binaryKeyedJdbcStore xmlns="urn:infinispan:config:jdbc:6.0">
 				<connectionPool connectionUrl="jdbc:mysql://localhost:3306/infinispan"
 					username="infinispan" password="infinispan" driverClass="com.mysql.jdbc.Driver" />
 				<binaryKeyedTable prefix="ISPN_GRID_OGM_BIN"
@@ -59,15 +58,17 @@
 					<timestampColumn name="TIMESTAMP_ASS" type="BIGINT" />
 				</binaryKeyedTable>
 			</binaryKeyedJdbcStore>
-		</persistence>
-	</namedCache>
+		</persistence-->
+        <persistence passivation="true">
+            <singleFile
+                    location="/tmp/infinispan_ogm_fs_v7/store" />
+        </persistence>
+    </namedCache>
 
 	<namedCache name="IDENTIFIERS">
-		<eviction strategy="LIRS" maxEntries="1" />
+		<!--eviction strategy="LIRS" maxEntries="1" />
 		<persistence>
-			<binaryKeyedJdbcStore xmlns="urn:infinispan:config:jdbc:6.0"
-				fetchPersistentState="false" ignoreModifications="false"
-				purgeOnStartup="false">
+			<binaryKeyedJdbcStore xmlns="urn:infinispan:config:jdbc:6.0">
 				<connectionPool connectionUrl="jdbc:mysql://localhost:3306/infinispan"
 					username="infinispan" password="infinispan" driverClass="com.mysql.jdbc.Driver" />
 				<binaryKeyedTable prefix="ISPN_GRID_OGM_BIN"
@@ -77,10 +78,10 @@
 					<timestampColumn name="TIMESTAMP_IDENT" type="BIGINT" />
 				</binaryKeyedTable>
 			</binaryKeyedJdbcStore>
-		</persistence>		
-		<!-- persistence passivation="true">
-			<singleFile
-				location="/Users/wrsantos/Ambiente/Projeto/infinispan_ogm_fs/store" />
 		</persistence-->
+		<persistence passivation="true">
+			<singleFile
+                    location="/tmp/infinispan_ogm_fs_v7/store" />
+		</persistence>
 	</namedCache>
 </infinispan>

@@ -1,6 +1,7 @@
 package com.packtpub.infinispan.chapter3.apis.tests;
 
-import static org.junit.Assert.*;
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertNull;
 
 import javax.cache.Cache;
 import javax.cache.CacheManager;

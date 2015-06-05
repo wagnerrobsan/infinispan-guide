@@ -7,15 +7,11 @@ import org.infinispan.client.hotrod.RemoteCache;
 import org.infinispan.client.hotrod.RemoteCacheManager;
 import org.infinispan.client.hotrod.configuration.ConfigurationBuilder;
 import org.infinispan.client.hotrod.configuration.ExhaustedAction;
-import org.infinispan.client.hotrod.exceptions.TransportException;
 import org.infinispan.commons.logging.Log;
 import org.infinispan.commons.logging.LogFactory;
 import org.infinispan.configuration.global.GlobalConfigurationBuilder;
 import org.infinispan.security.AuthorizationPermission;
 import org.infinispan.security.impl.IdentityRoleMapper;
-import org.junit.After;
-import org.junit.Before;
-import org.junit.Test;
 
 import com.packtpub.infinispan.chapter9.domain.Customer;
 import com.packtpub.infinispan.chapter9.security.SecurityCallbackHandler;
@@ -31,14 +27,14 @@ public class HotRodSecurityClientTest {
 
 	//@Before
 	public void setUp() throws Exception {
-    	
+
 		customer = new Customer();
 		customer.setName("Wagner");
 		customer.setAge(33);
 		customer.setCredit(15000d);
 		customer.setDoc("212.333.111");
 		customer.setMaritalStatus("Married");
-		
+
     	ConfigurationBuilder builder = new ConfigurationBuilder();
     	builder.addServer().
     			  host("localhost").
@@ -57,12 +53,12 @@ public class HotRodSecurityClientTest {
     	            enable().
     	            serverName("localhost").
     	            saslMechanism("DIGEST-MD5").
-    	            callbackHandler(new SecurityCallbackHandler("wsantos", "test123", REALM));; 
-    	    
+    	            callbackHandler(new SecurityCallbackHandler("wsantos", "test123", REALM));;
+
 		rcm = new RemoteCacheManager(builder.build());
-		rc = rcm.getCache("securedCache");    	
+		rc = rcm.getCache("securedCache");
 	}
-	
+
 	//@Test(expected=TransportException.class)
 	public void expectedInvalidPasswordTest(){
     	ConfigurationBuilder builder = new ConfigurationBuilder();
@@ -83,10 +79,10 @@ public class HotRodSecurityClientTest {
     	            enable().
     	            serverName("localhost").
     	            saslMechanism("DIGEST-MD5").
-    	            callbackHandler(new SecurityCallbackHandler("wrsantos", "test1234", REALM));; 
-    	    
+    	            callbackHandler(new SecurityCallbackHandler("wrsantos", "test1234", REALM));;
+
 		rcm = new RemoteCacheManager(builder.build());
-		rc = rcm.getCache("securedCache");  
+		rc = rcm.getCache("securedCache");
 	}
 
 	//@Test
@@ -103,7 +99,7 @@ public class HotRodSecurityClientTest {
 		              .permission(AuthorizationPermission.READ)
 		              .permission(AuthorizationPermission.WRITE)
 		           .role("reader")
-		              .permission(AuthorizationPermission.READ);		
+		              .permission(AuthorizationPermission.READ);
 
 		  ConfigurationBuilder builder = new ConfigurationBuilder();
 	    	builder.addServer().
@@ -123,12 +119,12 @@ public class HotRodSecurityClientTest {
 	    	            enable().
 	    	            serverName("localhost").
 	    	            saslMechanism("DIGEST-MD5").
-	    	            callbackHandler(new SecurityCallbackHandler("wrsantos", "test123", "ApplicationRealm"));; 
-	    	    
+	    	            callbackHandler(new SecurityCallbackHandler("wrsantos", "test123", "ApplicationRealm"));;
+
 			rcm = new RemoteCacheManager(builder.build());
-			rc = rcm.getCache("securedCache");  		
+			rc = rcm.getCache("securedCache");
 	}
-	
+
 	//@Test
 	public void executeHotRodOperations() {
 		logger.infof("Using the %s.", rc.getProtocolVersion());
@@ -137,14 +133,14 @@ public class HotRodSecurityClientTest {
 
 		logger.info("Retrieving customer from remote cache");
 		Customer customerFromCache = rc.get(KEY);
-        assertEquals("Customer must be the same", customer, customerFromCache);		
+        assertEquals("Customer must be the same", customer, customerFromCache);
 
 		logger.infof("Removing customer from remote cache");
 		rc.remove(KEY);
 		customer = rc.get(KEY);
 		assertNull( "Customer should be removed!", customer);
 	}
-	
+
 	//@After
 	public void closeRemoteCM(){
 		rc.stop();

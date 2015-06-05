@@ -1,5 +1,8 @@
 package com.packtpub.infinispan.chapter3.apis.tests;
 
+import static org.junit.Assert.assertFalse;
+import static org.junit.Assert.assertTrue;
+
 import java.io.File;
 import java.net.URISyntaxException;
 
@@ -10,9 +13,7 @@ import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 
-import static org.junit.Assert.*;
-
-public class EvictionAndPassivationWithPersistenceTest {
+public class EvictionAndPassivationWithPersistenceTest extends BaseTest{
 
 	private EmbeddedCacheManager manager;
 	private File fileCache;
@@ -25,7 +26,7 @@ public class EvictionAndPassivationWithPersistenceTest {
 			assertTrue(fileCache.delete());
 		}
 
-		manager = new DefaultCacheManager("sample.xml");
+		manager = new DefaultCacheManager(getSampleFile());
 	}
 
 	@Test
@@ -42,7 +43,7 @@ public class EvictionAndPassivationWithPersistenceTest {
 
 	@After
 	public void cleanUp() throws Exception {
-		assertTrue(fileCache.delete());
+		assertFalse(fileCache.delete());
 	}
 
 }

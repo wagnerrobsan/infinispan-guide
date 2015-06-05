@@ -10,7 +10,6 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.validation.constraints.NotNull;
 
-import org.hibernate.search.annotations.DocumentId;
 import org.hibernate.search.annotations.Indexed;
 
 /**
@@ -36,6 +35,7 @@ public class TicketCategory implements Serializable {
      * The synthetic id of the object.
      */
     @Id
+    @GeneratedValue(strategy = IDENTITY)
     private Long id;
 
     /**

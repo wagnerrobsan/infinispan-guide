@@ -19,10 +19,13 @@
 				value="org.hibernate.ogm.datastore.infinispan.impl.InfinispanDatastoreProvider" />
 			<!-- Point to a custom Infinispan configuration file -->
 			<property name="hibernate.ogm.infinispan.configuration_resource_name"
-				value="META-INF/config.xml" />
+				value="META-INF/sample.xml" />
 			<!-- defines which JTA Transaction we plan to use -->
-			<property name="hibernate.transaction.jta.platform"
-				value="org.hibernate.service.jta.platform.internal.JBossStandAloneJtaPlatform" />
+			<!--property name="hibernate.transaction.jta.platform"
+				value="org.hibernate.service.jta.platform.internal.JBossStandAloneJtaPlatform" / -->
+            <!-- Infinispan -->
+            <property name="hibernate.search.default.directory_provider" value="filesystem"/>
+            <property name="hibernate.search.default.indexBase" value="./tmp/.hibernate_ogm_demo_luceneindexes"/>
 		</properties>
 	</persistence-unit>
     <!-- persistence-unit name="ogm-jpa-with-jta" transaction-type="JTA">
@@ -31,7 +34,7 @@
 			<property name="hibernate.ogm.datastore.provider"
 				value="org.hibernate.ogm.datastore.infinispan.impl.InfinispanDatastoreProvider" />
 			<property name="hibernate.ogm.infinispan.configuration_resource_name"
-				value="META-INF/config.xml" />
+				value="META-INF/sample.xml" />
 			<property name="hibernate.transaction.jta.platform"
 				value="org.hibernate.service.jta.platform.internal.JBossStandAloneJtaPlatform" />
 		</properties>

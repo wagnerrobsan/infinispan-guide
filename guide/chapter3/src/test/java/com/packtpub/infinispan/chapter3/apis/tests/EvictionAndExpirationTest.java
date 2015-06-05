@@ -1,9 +1,6 @@
 package com.packtpub.infinispan.chapter3.apis.tests;
 
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertNotNull;
-import static org.junit.Assert.assertNull;
-import static org.junit.Assert.assertTrue;
+import static org.junit.Assert.*;
 
 import org.infinispan.Cache;
 import org.infinispan.manager.DefaultCacheManager;
@@ -11,12 +8,12 @@ import org.infinispan.manager.EmbeddedCacheManager;
 import org.junit.Before;
 import org.junit.Test;
 
-public class EvictionAndExpirationTest {
+public class EvictionAndExpirationTest extends BaseTest{
 	private EmbeddedCacheManager manager;
 
 	@Before
 	public void setUp() throws Exception {
-		manager = new DefaultCacheManager("sample.xml");
+		manager = new DefaultCacheManager(getSampleFile());
 		assertTrue(manager.getCacheNames().contains("CacheClient_Blue"));
 		assertTrue(manager.getCacheNames().contains("CacheClient_Brown"));
 		assertEquals(manager.getCacheNames().size(), 6);

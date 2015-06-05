@@ -1,24 +1,20 @@
 package com.packtpub.infinispan.chapter3.apis.tests;
 
-import org.infinispan.configuration.cache.Configuration;
-import org.infinispan.configuration.cache.ConfigurationBuilder;
-import org.infinispan.eviction.EvictionStrategy;
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertNull;
+
 import org.infinispan.manager.DefaultCacheManager;
 import org.infinispan.manager.EmbeddedCacheManager;
 import org.infinispan.tree.TreeCache;
-
-
 import org.infinispan.tree.TreeCacheFactory;
 import org.junit.Before;
 import org.junit.Test;
-
-import static org.junit.Assert.*;
 
 /**
  * Created by wrsantos on 10/05/15.
  */
 
-public class TreeCacheAPITest {
+public class TreeCacheAPITest extends BaseTest{
 
     private EmbeddedCacheManager manager;
 
@@ -26,7 +22,7 @@ public class TreeCacheAPITest {
     public void setUp() throws Exception {
         //Configuration config = new ConfigurationBuilder().transaction().invocationBatching().enable()
           //      .build();
-        manager = new DefaultCacheManager("sample.xml");
+        manager = new DefaultCacheManager(getSampleFile());
 
     }
 

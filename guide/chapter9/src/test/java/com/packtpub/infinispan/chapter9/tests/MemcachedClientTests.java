@@ -1,9 +1,6 @@
 package com.packtpub.infinispan.chapter9.tests;
 
-import static org.junit.Assert.*;
-
-import org.infinispan.commons.logging.Log;
-import org.infinispan.commons.logging.LogFactory;
+import static org.junit.Assert.assertEquals;
 
 import java.util.concurrent.TimeoutException;
 
@@ -12,6 +9,8 @@ import net.rubyeye.xmemcached.XMemcachedClientBuilder;
 import net.rubyeye.xmemcached.exception.MemcachedException;
 import net.rubyeye.xmemcached.utils.AddrUtil;
 
+import org.infinispan.commons.logging.Log;
+import org.infinispan.commons.logging.LogFactory;
 import org.junit.Before;
 import org.junit.Test;
 

@@ -1,16 +1,13 @@
 package com.packtpub.infinispan.chapter10.domain;
 
-import static javax.persistence.GenerationType.IDENTITY;
-
 import java.io.Serializable;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
-import javax.persistence.ManyToOne;
-import javax.persistence.Table;
-import javax.persistence.UniqueConstraint;
+import javax.persistence.*;
 import javax.validation.constraints.NotNull;
+
+import org.hibernate.annotations.GenericGenerator;
+import org.hibernate.search.annotations.Field;
+import org.hibernate.search.annotations.Indexed;
 
 
 /**
@@ -33,6 +30,7 @@ import javax.validation.constraints.NotNull;
 @SuppressWarnings("serial")
 @Entity
 @Table(uniqueConstraints=@UniqueConstraint(columnNames={"name", "venue_id"}))
+@Indexed
 /*
  * We indicate that some properties of the class shouldn't be marshalled in JSON format
  */
@@ -44,7 +42,10 @@ public class Section implements Serializable {
      * The synthetic id of the object.
      */
     @Id
-    private Long id;
+    @GeneratedValue(generator = "uuid")
+    @GenericGenerator(name="uuid", strategy="uuid2")
+    @Field(name = "id")
+    private String id;
 
     /**
      * <p>
@@ -99,11 +100,11 @@ public class Section implements Serializable {
 
     /* Boilerplate getters and setters */
     
-    public Long getId() {
+    public String getId() {
         return id;
     }
 
-    public void setId(Long id) {
+    public void setId(String id) {
         this.id = id;
     }
 

@@ -13,17 +13,16 @@ import org.junit.Test;
 import com.packtpub.infinispan.chapter3.listener.CacheLevelLoggingListener;
 import com.packtpub.infinispan.chapter3.listener.CacheManagerLevelLoggingListener;
 
-public class CacheEventsLoggingListenerTests {
+public class CacheEventsLoggingListenerTests extends BaseTest{
 
 	private DefaultCacheManager cacheManager;
 	private Cache<String, String> cache;
 
 	@Before
 	public void setUpBeforeClass() throws Exception {
-		String config = "sample.xml";
 		CacheLevelLoggingListener cacheListener = new CacheLevelLoggingListener();
 		CacheManagerLevelLoggingListener cacheManagerListener = new CacheManagerLevelLoggingListener();
-		cacheManager = new DefaultCacheManager(config);
+		cacheManager = new DefaultCacheManager(getSampleFile());
 		// Add a listener to the cache manager component
 		cacheManager.addListener(cacheManagerListener);
 		cache = cacheManager.getCache("ExpirationCache");

@@ -1,7 +1,5 @@
 package com.packtpub.infinispan.chapter4;
 
-import static org.junit.Assert.*;
-
 import org.infinispan.Cache;
 import org.infinispan.manager.EmbeddedCacheManager;
 import org.junit.Test;

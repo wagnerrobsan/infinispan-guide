@@ -13,7 +13,6 @@ public class UserGroup implements Serializable {
 	private static final long serialVersionUID = 3458419352909191084L;
 
 	@Id
-	//@GeneratedValue(strategy = IDENTITY)
 	private long id;
 	
 	private String groupName;

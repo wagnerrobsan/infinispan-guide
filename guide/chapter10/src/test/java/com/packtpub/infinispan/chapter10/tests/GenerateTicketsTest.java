@@ -16,11 +16,7 @@ import org.hibernate.ogm.util.impl.Log;
 import org.hibernate.ogm.util.impl.LoggerFactory;
 import org.junit.Test;
 
-import com.packtpub.infinispan.chapter10.domain.Seat;
-import com.packtpub.infinispan.chapter10.domain.Section;
-import com.packtpub.infinispan.chapter10.domain.Ticket;
-import com.packtpub.infinispan.chapter10.domain.TicketCategory;
-import com.packtpub.infinispan.chapter10.domain.Venue;
+import com.packtpub.infinispan.chapter10.domain.*;
 
 public class GenerateTicketsTest {
 
@@ -41,7 +37,7 @@ public class GenerateTicketsTest {
 		em.persist(theatre);
 
 		Section a1 = new Section();
-		a1.setName("A1");
+        a1.setName("A1");
 		a1.setNumberOfRows(1);
 		a1.setRowCapacity(50);
 
@@ -50,7 +46,7 @@ public class GenerateTicketsTest {
 		Seat seat103 = new Seat(a1, 1, 12);
 
 		Section a2 = new Section();
-		a2.setName("A2");
+        a2.setName("A2");
 		a2.setNumberOfRows(5);
 		a2.setRowCapacity(100);
 

@@ -29,7 +29,7 @@ import org.junit.Test;
 
 import com.packtpub.infinispan.chapter7.domain.Guest;
 
-public class TransactionalOperationsTest {
+public class TransactionalOperationsTest extends BaseTest{
 
 	private static final Log logger = LogFactory
 			.getLog(TransactionalOperationsTest.class);
@@ -40,7 +40,7 @@ public class TransactionalOperationsTest {
 	@Before
 	public void setUp() throws Exception {
 		logger.info("Executing setUp() ... ");
-		manager = new DefaultCacheManager("sample.xml");
+		manager = new DefaultCacheManager(getSampleFile());
 		assertTrue(manager.getCacheNames().contains(
 				"batchingCacheWithEvictionAndPassivation"));
 		assertTrue(manager.getCacheNames().contains("transactionalPessimistic"));

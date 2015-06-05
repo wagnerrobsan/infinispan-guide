@@ -1,5 +1,7 @@
 package com.packtpub.infinispan.chapter3.apis.tests;
 
+import static org.junit.Assert.assertEquals;
+
 import org.infinispan.configuration.cache.Configuration;
 import org.infinispan.configuration.cache.ConfigurationBuilder;
 import org.infinispan.configuration.global.GlobalConfiguration;
@@ -8,8 +10,6 @@ import org.infinispan.eviction.EvictionStrategy;
 import org.infinispan.manager.CacheContainer;
 import org.infinispan.manager.DefaultCacheManager;
 import org.junit.Test;
-
-import static org.junit.Assert.*;
 
 public class ProgrammaticConfigurationTest {
 
