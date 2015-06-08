@@ -20,10 +20,9 @@ You can easily trigger the desired profile using IntelliJ or Eclipse, please ref
 This practical guide is intended for those who want to learn how to build extremely scalable applications. This book is easy to read and is aimed at Java enterprise developers with a solid knowledge of Java. However, no previous coding experience with Infinispan is required.
 
 #####You will learn:
-
-*Create highly scalable applications using the Infinispan Data Grid Platform
-*Maximize your application's performance in any cluster environment
-*Become an expert in creating powerful solutions using Infinispan through ready-to-use examples
+* Create highly scalable applications using the Infinispan Data Grid Platform
+* Maximize your application's performance in any cluster environment
+* Become an expert in creating powerful solutions using Infinispan through ready-to-use examples
 
 
 ### Authors
